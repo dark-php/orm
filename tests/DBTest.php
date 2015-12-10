@@ -11,7 +11,7 @@ class DBTest extends \PHPUnit_Framework_TestCase
 
         // Clear DB
         $q = DB::$pdo->query("SELECT concat('DROP TABLE IF EXISTS ', table_name, ';') FROM information_schema.tables WHERE table_schema = 'orm_test';");
-        DB::$pdo->exec($q->fetch()[0]);
+        if ($q->rowCount() > 0) DB::$pdo->exec($q->fetch()[0]);
     }
 
     /**
