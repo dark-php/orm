@@ -6,6 +6,9 @@ services:
 php:
   - 7.0
 
+before_install:
+  - mysql -e "create database IF NOT EXISTS orm_test;" -uroot
+
 before_script:
   - curl -s http://getcomposer.org/installer | php
   - php composer.phar install

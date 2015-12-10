@@ -6,7 +6,7 @@ use Darktec\ORM\DB;
 class DBTest extends \PHPUnit_Framework_TestCase
 {
     public function testDbInit() {
-        DB::init('localhost', 'orm_test', 'travis', null);
+        DB::init('localhost', 'orm_test', 'root', '');
         $this->assertInstanceOf(\PDO::class, DB::$pdo);
 
         // Clear DB

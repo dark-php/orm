@@ -16,7 +16,7 @@ class DB
      * @param string $user
      * @param string $password
      */
-    public static function init(\string $host, \string $dbname, \string $user, \string $password)
+    public static function init(string $host, string $dbname, string $user, string $password)
     {
         try {
             self::$pdo = new PDO("mysql:host=$host;dbname=$dbname", $user, $password, array(
@@ -33,7 +33,7 @@ class DB
      * @param string $table
      * @param array $columns
      */
-    public static function createTable(\string $table, array $columns)
+    public static function createTable(string $table, array $columns)
     {
         $sql = "CREATE TABLE $table (id INT(10) AUTO_INCREMENT PRIMARY KEY, ";
 
@@ -57,7 +57,7 @@ class DB
      * @param string $table
      * @param array $values
      */
-    public static function insert(\string $table, array $values)
+    public static function insert(string $table, array $values)
     {
         $query = "INSERT INTO $table (";
 
@@ -85,7 +85,7 @@ class DB
         }
     }
 
-    public static function select(\string $table, \int $id) {
+    public static function select(string $table, int $id) {
         $query = "SELECT * FROM $table WHERE id = $id";
 
         try {
