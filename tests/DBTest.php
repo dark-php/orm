@@ -6,7 +6,7 @@ use Darktec\ORM\DB;
 class DBTest extends \PHPUnit_Framework_TestCase
 {
     public function testDbInit() {
-        DB::init('localhost', 'orm_test', 'darktec_test', 'd4rkt3c_t3st');
+        DB::init('localhost', 'orm_test', 'travis', null);
         $this->assertInstanceOf(\PDO::class, DB::$pdo);
 
         // Clear DB
@@ -45,7 +45,7 @@ class DBTest extends \PHPUnit_Framework_TestCase
      * @depends testDbCreateTable
      */
     public function testDbInsert() {
-        DB::insert("users", array('name' => 'David Hopson', 'email' => 'mantle@hotmail.co.uk'));
+        DB::insert("users", array('name' => 'David Hopson', 'email' => 'test@test.com'));
 
         $sql = "SELECT * FROM users WHERE name = 'David Hopson'";
 
